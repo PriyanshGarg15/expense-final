@@ -23,7 +23,7 @@ mongoose.set('strictQuery', false);
 
 const connectDb = async () => {
     try {
-        await mongoose.connect("mongodb://priyanshgargcs22:3DDR44i7gZXuYfP3/?replicaSet=atlas-393z4y-shard-0&ssl=true&authSource=admin", {
+        await mongoose.connect("mongodb+srv://priyanshgargcs22:3DDR44i7gZXuYfP3@atlas-393z4y-shard-0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -35,3 +35,4 @@ const connectDb = async () => {
 };
 
 module.exports = connectDb;
+
