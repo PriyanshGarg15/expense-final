@@ -23,14 +23,15 @@ mongoose.set('strictQuery', false);
 
 const connectDb = async () => {
     try {
-        await mongoose.connect("mongodb+srv://priyanshgargcs22:3DDR44i7gZXuYfP3@atlas-393z4y-shard-0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+        await mongoose.connect("mongodb+srv://priyanshgargcs22:3DDR44i7gZXuYfP3@cluster0.cfqqt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
 
         console.log(`Server running On ${mongoose.connection.host}`.bgCyan.white);
     } catch (error) {
-        console.log(`${error}`.bgRed);
+        console.error(`MongoDB Connection Error: ${error.message}`.bgRed.white);
+        process.exit(1); // Exit process on failure
     }
 };
 
